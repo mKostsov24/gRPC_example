@@ -1,0 +1,10 @@
+create sequence if not exists data_seq;
+
+CREATE TABLE IF NOT EXISTS data
+(
+    id           integer      default nextval('data_seq'::regclass) not null,
+    id_message         integer not NULL,
+    time     DATE                                          NOT NULL,
+    queue_name        varchar(255)                                       NOT NULL,
+    body_message varchar(255)
+);

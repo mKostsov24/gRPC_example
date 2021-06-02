@@ -1,0 +1,29 @@
+syntax = "proto3";
+package org.example.simple.gRPC;
+
+message RequestInputDataMessage{
+  string id = 1;
+  string queue_name = 2;
+  string body_message = 3;
+}
+
+message ResponseInputDataMessage{
+  string message = 1;
+}
+
+message RequestOutputDataMessage{
+  string message = 1;
+}
+
+message ResponseOutputDataMessage{
+  int64 id = 1;
+  int64 id_message = 2;
+  string queue_name = 3;
+  string body_message = 4;
+  string time = 5;
+}
+
+service MessagesService{
+  rpc AddData(RequestInputDataMessage) returns (ResponseInputDataMessage);
+  rpc GetData(RequestOutputDataMessage) returns (stream ResponseOutputDataMessage);
+}
