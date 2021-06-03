@@ -23,8 +23,8 @@ public class Client
         ManagedChannel channel = ManagedChannelBuilder.forTarget("localhost:8085")
                 .usePlaintext().build();
         org.example.simple.gRPC.MessagesServiceGrpc.MessagesServiceBlockingStub stub  = org.example.simple.gRPC.MessagesServiceGrpc.newBlockingStub(channel);
-//        org.example.simple.gRPC.MessagesServiceOuterClass.RequestOutputDataMessage requestOutputDataMessage =  org.example.simple.gRPC.MessagesServiceOuterClass.RequestOutputDataMessage.newBuilder().setMessage("3").build();
         org.example.simple.gRPC.MessagesServiceOuterClass.RequestOutputDataMessage requestOutputDataMessage =  org.example.simple.gRPC.MessagesServiceOuterClass.RequestOutputDataMessage.newBuilder().setMessage("0").build();
+//        org.example.simple.gRPC.MessagesServiceOuterClass.RequestOutputDataMessage requestOutputDataMessage =  org.example.simple.gRPC.MessagesServiceOuterClass.RequestOutputDataMessage.newBuilder().setMessage("3").build();
 //        org.example.simple.gRPC.MessagesServiceOuterClass.RequestOutputDataMessage requestOutputDataMessage =  org.example.simple.gRPC.MessagesServiceOuterClass.RequestOutputDataMessage.newBuilder().setMessage("2021-05-24T21:00:00Z 2021-05-25T21:00:00Z").build();
         Iterator<MessagesServiceOuterClass.ResponseOutputDataMessage> responseOutputDataMessage = stub.getData(requestOutputDataMessage);
         while(responseOutputDataMessage.hasNext()){
@@ -40,7 +40,7 @@ public class Client
         org.example.simple.gRPC.MessagesServiceOuterClass.RequestInputDataMessage  requestInputDataMessage =  org.example.simple.gRPC.MessagesServiceOuterClass.RequestInputDataMessage.newBuilder().setId("87").setBodyMessage("1i7").setQueueName("queue-2").build();
         org.example.simple.gRPC.MessagesServiceOuterClass.ResponseInputDataMessage responseInputDataMessage = stub.addData(requestInputDataMessage);
         System.out.println(responseInputDataMessage);
-        org.example.simple.gRPC.MessagesServiceOuterClass.RequestInputDataMessage  requestInputDataMessageTwo =  org.example.simple.gRPC.MessagesServiceOuterClass.RequestInputDataMessage.newBuilder().setId("77").setBodyMessage("1i7").setQueueName("queue-2").build();
+        org.example.simple.gRPC.MessagesServiceOuterClass.RequestInputDataMessage  requestInputDataMessageTwo =  org.example.simple.gRPC.MessagesServiceOuterClass.RequestInputDataMessage.newBuilder().setId("77").setBodyMessage("1i7").setQueueName("queue-1").build();
         org.example.simple.gRPC.MessagesServiceOuterClass.ResponseInputDataMessage responseInputDataMessageTWo = stub.addData(requestInputDataMessageTwo);
         System.out.println(responseInputDataMessageTWo);
 
